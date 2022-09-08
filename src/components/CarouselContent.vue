@@ -15,15 +15,15 @@ export default {
 </script>
 
 <template lang="pug">
-  .page-fixed-width.absolute-center
-    q-slide-transition(appear :duration="1500")
-      div(:class="classes").text-center
-        h6
-          slot(name="semi-title")
-        h1
-          slot(name="title")
-        p
-          slot(name="description")
+.page-fixed-width.absolute-center
+  q-slide-transition(appear :duration="1500")
+    div(:class="classes").text-center
+      h6
+        slot(name="semi-title")
+      h1
+        slot(name="title")
+      p
+        slot(name="description")
 
 </template>
 
