@@ -92,20 +92,18 @@ export default {
 
 
 <template lang="pug">
-  div.text-center
-    q-input.alt-input-marging(dense filled v-model="$v.name.$model" label="Jméno" :error="$v.name.$error" error-message="Vyplňte jméno")
-    q-input.alt-input-marging(dense filled v-model="$v.company.$model" label="Společnost" :error="$v.company.$error" error-message="Vyplňte jméno společnosti")
-    q-input.alt-input-marging(dense filled type="email" v-model="$v.email.$model" label="Email" :error="$v.email.$error" error-message="Zadejte platný email")
-    q-input.alt-input-marging(dense filled v-model="$v.phone.$model" label="Telefon" :error="$v.phone.$error" error-message="Vyplňte Váš telefon")
-    q-input.alt-input-marging(dense autogrow outlined type="textarea" v-model="$v.text.$model" :error="$v.text.$error" label="Napište nám jaké řešení potřebujete" error-message="Prosíme, vyplňte obsah zprávy" filled)
-    .flex.justify-center
-      q-checkbox(dense filled v-model="$v.souhlas.$model" label="Souhlas se zpracováním " :error="$v.souhlas.$error" error-message="prosím odsouhlaste")
-      q-btn(no-caps :ripple="false" label="osob. údajů" flat size="small" type="link" @click="podminkyOpen = true" color="primary")
-    podminky-dialog(v-model="podminkyOpen")
+div.text-center
+  q-input.alt-input-marging(dense filled v-model="$v.name.$model" label="Vaše jméno" :error="$v.name.$error" error-message="Vyplňte vaše jméno")
+  q-input.alt-input-marging(dense filled v-model="$v.company.$model" label="Název obce" :error="$v.company.$error" error-message="Vyplňte jméno vaší obce")
+  q-input.alt-input-marging(dense filled type="email" v-model="$v.email.$model" label="Email" :error="$v.email.$error" error-message="Zadejte platný email")
+  q-input.alt-input-marging(dense filled v-model="$v.phone.$model" label="Telefon" :error="$v.phone.$error" error-message="Vyplňte Váš telefon")
+  // q-input.alt-input-marging(dense autogrow outlined type="textarea" v-model="$v.text.$model" :error="$v.text.$error" label="Napište nám jaké řešení potřebujete" error-message="Prosíme, vyplňte obsah zprávy" filled)
+  .flex.justify-center
+    q-checkbox(dense filled v-model="$v.souhlas.$model" label="Souhlas se zpracováním " :error="$v.souhlas.$error" error-message="prosím odsouhlaste")
+    q-btn(no-caps :ripple="false" label="osob. údajů" flat size="small" type="link" @click="podminkyOpen = true" color="primary")
+  podminky-dialog(v-model="podminkyOpen")
 
-    q-btn.q-px-md.q-mt-md(:disabled="$v.$anyError" no-caps color="primary" label="Odeslat poptávku" size="md" @click="sendForm")
-    //p.q-mt-md Zanechte nám své kontaktní údaje a my se Vám ozveme.
-    // a(href='@click="podminkyOpen = true"') &nbsp;osob. údajů
+  q-btn.q-px-md.q-mt-md(:disabled="$v.$anyError" no-caps color="primary" label="Chci více informací" size="md" @click="sendForm" class="text-bold")
 
 </template>
 

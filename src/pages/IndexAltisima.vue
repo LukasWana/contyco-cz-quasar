@@ -69,29 +69,16 @@ export default {
       tab: 'formular',
       ujednaniDialogOpen: false,
       podminkyDialogOpen: false,
-      imagesInternet: [
-        { src: 'statics/galerie/int-obj/1_objednavka.png', alt: 'Objednávka', thumbnail: null },
-        { src: 'statics/galerie/int-obj/2_prehled.PNG', alt: 'Přehled', thumbnail: null },
-        { src: 'statics/galerie/int-obj/3_finance.png', alt: 'Finance', thumbnail: null },
-        { src: 'statics/galerie/int-obj/4_maily.png', alt: 'Maily', thumbnail: null }
+      admin: [
+        { src: 'statics/galerie/ssa---prehledy.jpg', alt: 'Přehledy', thumbnail: null },
+        { src: 'statics/galerie/ssa---odberna-mista.jpg', alt: 'Odběrná místa', thumbnail: null },
+        { src: 'statics/galerie/ssa---kalendar-svozu.jpg', alt: 'Kalendář svozu odpadu', thumbnail: null }
       ],
-      imagesJidelna: [
-        { src: 'statics/galerie/jid-sql/1_titulni-orbazovka.jpg', alt: 'Titulní obrazovka', thumbnail: null },
-        { src: 'statics/galerie/jid-sql/2_jidelnicek.jpg', alt: 'Jídelníček', thumbnail: null },
-        { src: 'statics/galerie/jid-sql/3_pokladna.jpg', alt: 'Pokladna', thumbnail: null }
+      app: [
+        { src: 'statics/galerie/uap---login.jpg', alt: 'Login', thumbnail: null },
+        { src: 'statics/galerie/uap---inapp.jpg', alt: 'Oblíbená místa', thumbnail: null }
       ],
-      imagesObjednavkovy: [
-        { src: 'statics/galerie/obj-ter/1_TT1703.jpg', alt: 'Terminál', thumbnail: null },
-        { src: 'statics/galerie/obj-ter/2_TT1703.jpg', alt: 'Terminál', thumbnail: null },
-        { src: 'statics/galerie/obj-ter/3_identifikace.jpg', alt: 'Identifikace', thumbnail: null },
-        { src: 'statics/galerie/obj-ter/4_objednavka.jpg', alt: 'Objednávka', thumbnail: null }
-      ],
-      imagesVydej: [
-        { src: 'statics/galerie/vyd-ter/1_TT3503vydej.jpg', alt: 'Terminál výdej', thumbnail: null },
-        { src: 'statics/galerie/vyd-ter/2_identifikace.jpg', alt: 'Identifikace', thumbnail: null },
-        { src: 'statics/galerie/vyd-ter/3_vydej.jpg', alt: 'Výdej', thumbnail: null },
-        { src: 'statics/galerie/vyd-ter/4_TT3511semafor.jpg', alt: 'Semafor na terminálu', thumbnail: null }
-      ],
+
       blogPosts: []
     }
   },
@@ -180,7 +167,7 @@ q-page
 
   page-section
     h2.text-center Provoz aplikace
-    .flex.justify-center(:class="{'q-gutter-lg': !$q.screen.lt.sm}")
+    .flex.justify-center(:class="{'q-gutter-xs': !$q.screen.lt.sm}")
 
       jidelna-section-double-card
           template(#title) Odběrná místa
@@ -238,42 +225,42 @@ q-page
     .flex.q-gutter-sm(:class="{'justify-center': $q.screen.gt.xs}")
       page-section-card
         template(#icon)
-          img(src="~assets/contyco-odrazka.svg" alt="Icona" height="36px")
+          img(src="~assets/contyco-odrazka.svg" alt="Icona" height="52px")
         template(#title) Nároky na hardware
         template
           | Pro provoz aplikace využijete standardní počítače nebo mobilní zařízení. Provoz databáze a celkovou infrastrukturu zajistíme v ceně služby.
 
       page-section-card
         template(#icon)
-          img(src="~assets/contyco-odrazka.svg" alt="Icona" height="36px")
+          img(src="~assets/contyco-odrazka.svg" alt="Icona" height="52px")
         template(#title) Uživatelské rozhraní
         template
           | Responzivní rozhraní webové aplikace pro správu obce zajistí pohodlnou práci a aplikací na všech typech zařízení.
 
       page-section-card
         template(#icon)
-          img(src="~assets/contyco-odrazka.svg" alt="Icona" height="36px")
+          img(src="~assets/contyco-odrazka.svg" alt="Icona" height="52px")
         template(#title) Dostupnost služeb
         template
           | Naše výkonné servery zajistí provoz aplikace v jakoukoli dobu. Mobilní verze je připravená pro všechny operační systémy.
 
       page-section-card
         template(#icon)
-          img(src="~assets/contyco-odrazka.svg" alt="Icona" height="36px")
+          img(src="~assets/contyco-odrazka.svg" alt="Icona" height="52px")
         template(#title) Vzájemná konektivita
         template
           | Po aktivaci služby vytvoříme vaší obci uživatelský profil, kam se přihlašují pracovníci správy obce i mobilní aplikace.
 
       page-section-card
         template(#icon)
-          img(src="~assets/contyco-odrazka.svg" alt="Icona" height="36px")
+          img(src="~assets/contyco-odrazka.svg" alt="Icona" height="52px")
         template(#title) Přenos dat
         template
           | Data mezi centrální správou obecního profilu a mobilními aplikacemi jsou přenášena okamžitě s vysokým zabezpečením.
 
       page-section-card
         template(#icon)
-          img(src="~assets/contyco-odrazka.svg" alt="Icona" height="36px")
+          img(src="~assets/contyco-odrazka.svg" alt="Icona" height="52px")
         template(#title) Podpora systému
         template
           | Naše řešení obsahuje nejen aktivaci, ale i neomezenou podporu pro správu obce i pro uživatele mobilních aplikací.
@@ -283,7 +270,7 @@ q-page
     h2 Jak vypadá aplikace
     .q-pa-md
       .q-gutter-y-md
-        q-card
+        q-card(flat square bordered)
           q-tabs(
             v-model='tab'
             no-caps
@@ -294,12 +281,11 @@ q-page
             q-tab(name='admin' label='Administrace odběrných míst')
             q-tab(name='app' label='Mobilní aplikace')
 
-          q-separator
           q-tab-panels(v-model='tab' animated='')
             q-tab-panel(name='admin')
-              jidelna-gallery(:images="imagesInternet")
+              jidelna-gallery(:images="admin")
             q-tab-panel(name='app')
-              jidelna-gallery(:images="imagesJidelna")
+              jidelna-gallery(:images="app")
 
 
 
@@ -316,15 +302,14 @@ q-page
 
         q-card(@hide="dialog = false" ref="menu").pomocPopupInside
           .text-center.q-pt-sm
-            | <b>Díky za Váš zájem,<br>
-            | potřebujete víc informaci? Napište nám.</b>
-
+            | #[b Rád bych se dozvěděl více o CONTYCO ]
+            br
+            | a zapojil naši obec do testovacího
+            br
+            | provozu za zvýhodněných podmínek.
           q-tab-panels.text-center(v-model='tab' animated)
             q-tab-panel(name="formular")
               jidelna-formular
-
-
-
 
 </template>
 
