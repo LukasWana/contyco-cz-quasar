@@ -67,6 +67,7 @@ export default {
       slide: '1',
       slideReferences: '1',
       tab: 'formular',
+      imgTab: 'admin',
       ujednaniDialogOpen: false,
       podminkyDialogOpen: false,
       admin: [
@@ -272,7 +273,7 @@ q-page
       .q-gutter-y-md
         q-card(flat square bordered)
           q-tabs(
-            v-model='tab'
+            v-model='imgTab'
             no-caps
             class='md-md text-primary'
             active-color='accent'
@@ -281,7 +282,7 @@ q-page
             q-tab(name='admin' label='Administrace odběrných míst')
             q-tab(name='app' label='Mobilní aplikace')
 
-          q-tab-panels(v-model='tab' animated='')
+          q-tab-panels(v-model='imgTab' animated='')
             q-tab-panel(name='admin')
               jidelna-gallery(:images="admin")
             q-tab-panel(name='app')
