@@ -176,7 +176,7 @@ q-page
     .row.justify-center.page-section-ourstory
       .col-xs-12.col-sm-8.col-md-7.q-px-md.q-mb-xl
         h2 Náš příběh
-        | Projekt aplikace CONTYCO vznikl na základě poptávky starosty jedné obce. Požadavkem bylo vylepšit informování správy obce o stavu jednotlivých stanovišť kontejnerů na tříděný odpad a zároveň občanům obce usnadnit třídění odpadu, informovat je o umístění kontejnerů a o jejich aktuální zaplněnosti. Díky technologickým zkušenostem našeho partnera, firmy Altisima software SE, můžeme už teď říct, že brzo nasadíme první aplikace do uživatelského testování.
+        | Projekt aplikace #[b CONTYCO] vznikl na základě poptávky starosty jedné obce. Požadavkem bylo vylepšit informování správy obce o stavu jednotlivých stanovišť kontejnerů na tříděný odpad a zároveň občanům obce usnadnit třídění odpadu, informovat je o umístění kontejnerů a o jejich aktuální zaplněnosti. Díky technologickým zkušenostem našeho partnera, firmy Altisima software SE, můžeme už teď říct, že brzo nasadíme první aplikace do uživatelského testování.
 
   page-section
     h2.text-center Provoz aplikace
@@ -215,7 +215,7 @@ q-page
           div.text-left.ulli
             | Pro občany obce jsme připravili mobilní aplikaci. Data získaná od uživatelů aplikace pomáhají optimalizovat správu nádob na tříděný odpad. Pořizovat je mohou občané obce nebo pověření zaměstnanci Obecního úřadu. Uživatelské rozhraní aplikace je intuitivní a práci s ní zvládne jakýkoli uživatel chytrého mobilního telefonu.
 
-            jidelna-section-double-card
+      jidelna-section-double-card
         template(#title) Uživatelé aplikace
         template(#icon)
           img(src="~assets/reseni-01.jpg" alt="Chip")
@@ -223,7 +223,7 @@ q-page
           div.text-left.ulli
             | Aplikace může fungovat v režimu host nebo pro přihlášené uživatele. Obsahuje veškeré informace potřebné k vyhledání místa odběru tříděného odpadu, jeho zaplněnosti a termín svozu odpadu. Přihlášený uživatel má navíc možnost volby nejčastěji používaného odběrného místa s notifikací o zaplněnosti nebo o provedeném svozu odpadu.
 
-            jidelna-section-double-card
+      jidelna-section-double-card
         template(#title) Správa odběrného místa
         template(#icon)
           img(src="~assets/reseni-01.jpg" alt="Chip")
@@ -282,9 +282,15 @@ q-page
   page-section
     h2 Jak vypadá aplikace
     .q-pa-md
-      .q-gutter-y-md()
+      .q-gutter-y-md
         q-card
-          q-tabs(v-model='tab' no-caps class='md-md text-primary' active-color='accent' indicator-color='accent')
+          q-tabs(
+            v-model='tab'
+            no-caps
+            class='md-md text-primary'
+            active-color='accent'
+            indicator-color='accent'
+          )
             q-tab(name='admin' label='Administrace odběrných míst')
             q-tab(name='app' label='Mobilní aplikace')
 
@@ -312,21 +318,11 @@ q-page
           .text-center.q-pt-sm
             | <b>Díky za Váš zájem,<br>
             | potřebujete víc informaci? Napište nám.</b>
-            // <b>Nastiňte nám prosím vaše tužby</b>
-          // q-tabs(no-cap v-model='tab' dense active-color='primary' indicator-color='primary' align='justify' narrow-indicator style="min-width: 300px")
-          // q-tab(no-caps name='formular' label='Kontaktujte nás')
-          // q-tab(no-caps name='potrebujipomoc' label='Jak Vám můžeme pomoci?')
 
           q-tab-panels.text-center(v-model='tab' animated)
             q-tab-panel(name="formular")
               jidelna-formular
 
-            // q-tab-panel(name="potrebujipomoc")
-                formular-helpdesk
-
-  // test externi stranky formulare
-  // page-section.section-nadpis.text-center
-      a(href="#" @click="$router.push({name: 'kontaktni-formular'})") Formular
 
 
 

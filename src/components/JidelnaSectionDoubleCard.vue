@@ -62,6 +62,7 @@ q-card(bordered).page-section-card
   .page-section-card-title
     text-align center
     font-size 20px
+    color $secondary
     font-family  $alt-title-font
     height $gekonTitleContainerSize
     min-height $gekonTitleContainerSize
