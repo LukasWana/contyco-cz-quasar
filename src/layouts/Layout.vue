@@ -4,7 +4,7 @@ q-layout(view="lHh Lpr lFf" class="is-gekon")
     q-toolbar.page-fixed-width
       img(src="~assets/logo-contyco.svg" alt="Logo CONTYCO" width="150")
       q-toolbar-title
-      | GEKON!!!
+      | CONTYCO.CZ
       // lang-switcher-flags
   q-page-container.gekon-bg-img.transition(name='slide-fade' appear)
     div

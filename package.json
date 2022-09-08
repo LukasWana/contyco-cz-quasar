@@ -1,11 +1,11 @@
 {
-  "name": "Altisima.cz",
+  "name": "Contyco.cz",
   "version": "0.0.1",
-  "description": "Altisima.cz - český dodavatel softwaru",
-  "productName": "Altisima.cz",
+  "description": "Contyco.cz - český dodavatel softwaru",
+  "productName": "Contyco.cz",
   "cordovaId": "org.cordova.quasar.app",
   "capacitorId": "",
-  "author": "Jaroslav Povolný <jaroslav.povolny@gmail.com>",
+  "author": "Lukáš Wana <wana@seznam.cz>",
   "private": true,
   "scripts": {
     "serve": "quasar dev --mode ssr",

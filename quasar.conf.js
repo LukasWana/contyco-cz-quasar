@@ -107,9 +107,9 @@ module.exports = function (ctx) {
       workboxPluginMode: 'GenerateSW', // 'GenerateSW' or 'InjectManifest'
       workboxOptions: {}, // only for GenerateSW
       manifest: {
-        name: 'jidelnasql.cz',
-        short_name: 'jidelnasql.cz',
-        description: 'jidelnasql.cz - produktový web',
+        name: 'Contyco.cz',
+        short_name: 'Contyco.cz',
+        description: 'Contyco.cz - produktový web',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
@@ -175,7 +175,7 @@ module.exports = function (ctx) {
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: 'jidelnasqlcz-quasar'
+        appId: 'contyco-cz-quasar'
       },
 
       // More info: https://quasar.dev/quasar-cli/developing-electron-apps/node-integration

@@ -1,17 +1,69 @@
-<template lang="pug">
-  transition(name="fade")
-    .tinybox(v-if="open" @click="close" @wheel.prevent="" @touchmove.prevent="")
-      .tinybox__content(:class="{'tinybox__content--no-thumbs': noThumbs}" @touchstart="swipeStart" @touchmove="swipe")
-        transition(:name="slide")
-          q-img.tinybox__content__image(:key="images[index].src || images[index] || ''" :src="images[index].src || images[index] || ''" :alt="images[index].alt || ''" native-context-menu="" @click.stop="next")
-            .absolute-bottom.text-subtitle1.text-center(v-if="images[index].alt")
-              | {{ images[index].alt }}
-        .tinybox__content__control.tinybox__content__control--prev(v-if="prevImage !== index" @click.stop="prev")
-          .tinybox__content__control.tinybox__content__control--next(v-if="nextImage !== index" @click.stop="next")
-            .tinybox__content__control.tinybox__content__control--close(@click.stop="close")
-            .tinybox__thumbs(v-if="!noThumbs" @touchmove.stop="" @wheel.stop="")
-              q-img.tinybox__thumbs__item(v-for="(image, idx) in images" :key="idx" :class="{'tinybox__thumbs__item--active': index === idx}" :src="image.thumbnail || image.src || image || ''" :alt="image.alt || ''" @click.stop="goto(idx)")
+<template>
+  <transition name="fade">
+    <div
+      v-if="open"
+      class="tinybox"
+      @click="close"
+      @wheel.prevent
+      @touchmove.prevent
+    >
+      <div
+        class="tinybox__content"
+        :class="{'tinybox__content--no-thumbs': noThumbs}"
+        @touchstart="swipeStart"
+        @touchmove="swipe"
+      >
+        <transition :name="slide">
+          <img
+            :key="images[index].src || images[index] || ''"
+            :src="images[index].src || images[index] || ''"
+            :alt="images[index].alt || images[index].caption || ''"
+            class="tinybox__content__image"
+            @click.stop="next"
+          >
+        </transition>
 
+        <span
+          v-if="images[index].caption"
+          class="tinybox__content__image__caption"
+          v-text="images[index].caption"
+        />
+
+        <div
+          v-if="prevImage !== index"
+          class="tinybox__content__control tinybox__content__control--prev"
+          @click.stop="prev"
+        />
+        <div
+          v-if="nextImage !== index"
+          class="tinybox__content__control tinybox__content__control--next"
+          @click.stop="next"
+        />
+        <div
+          class="tinybox__content__control tinybox__content__control--close"
+          @click.stop="close"
+        />
+      </div>
+      <div
+        v-if="!noThumbs"
+        ref="thumbs"
+        class="tinybox__thumbs"
+        @touchmove.stop
+        @wheel.stop
+      >
+        <img
+          v-for="(image, idx) in images"
+          :key="idx"
+          ref="thumbItems"
+          :class="{'tinybox__thumbs__item--active': index === idx}"
+          :src="image.thumbnail || image.src || image || ''"
+          :alt="images[index].alt || images[index].caption || ''"
+          class="tinybox__thumbs__item"
+          @click.stop="goto(idx)"
+        >
+      </div>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -225,129 +277,143 @@ export default {
 </script>
 
 <style scoped>
-  .tinybox {
-    background-color: rgba(0, 0, 0, .9);
-    bottom: 0;
-    left: 0;
-    position: fixed;
-    right: 0;
-    text-align: center;
-    top: 0;
-    z-index: 1000;
-  }
+.tinybox {
+  background-color: rgba(0, 0, 0, 1);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  z-index: 9000;
+}
 
-  .tinybox__content {
-    height: 85%;
-    position: relative;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.tinybox__content {
+  height: 85%;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .tinybox__content--no-thumbs {
-    height: 100%;
-  }
+.tinybox__content--no-thumbs {
+  height: 100%;
+}
 
-  .tinybox__content__image {
-    background-color: #222;
-    cursor: pointer;
-    display: inline-block;
-    max-height: 90%;
-    max-width: 80%;
-    position: absolute;
-  }
+.tinybox__content__image {
+  background-color: #222;
+  cursor: pointer;
+  display: inline-block;
+  max-height: 90%;
+  max-width: 80%;
+  position: absolute;
+}
 
-  .tinybox__content__control {
-    background: no-repeat center/24px;
+.tinybox__content__image__caption {
+  position: absolute;
+  bottom: 0;
+  padding: 0.5rem 0.75rem;
+  border-radius: 5px;
+  color: white;
+  background-color: rgba(0, 0, 0, 1);
+  opacity: 0.75;
+  font-family: sans-serif;
+  font-weight: lighter;
+  font-size: 1.2rem;
+}
 
-    cursor: pointer;
-    opacity: .5;
-    position: absolute;
-    top: 0;
-    transition: opacity 300ms ease;
-    width: 4em;
-  }
+.tinybox__content__control {
+  background: no-repeat center/24px;
 
-  .tinybox__content__control:hover {
-    opacity: 1;
-  }
+  cursor: pointer;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  transition: opacity 300ms ease;
+  width: 4em;
+}
 
-  .tinybox__content__control--prev {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='2 -2 28 36' width='40' height='60' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3'%3E%3Cpath d='M20 30 L8 16 20 2' /%3E%3C/svg%3E");
-    bottom: 0;
-    left: 0;
-  }
+.tinybox__content__control:hover {
+  opacity: 1;
+}
 
-  .tinybox__content__control--next {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='2 -2 28 36' width='40' height='60' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3'%3E%3Cpath d='M12 30 L24 16 12 2' /%3E%3C/svg%3E");
-    bottom: 0;
-    right: 0;
-  }
+.tinybox__content__control--prev {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='2 -2 28 36' width='40' height='60' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3'%3E%3Cpath d='M20 30 L8 16 20 2' /%3E%3C/svg%3E");
+  bottom: 0;
+  left: 0;
+}
 
-  .tinybox__content__control--close {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-5 -5 46 46' width='40' height='40' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='4'%3E%3Cpath d='M2 30 L30 2 M30 30 L2 2' /%3E%3C/svg%3E");
-    height: 2.6em;
-    right: 0;
-  }
+.tinybox__content__control--next {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='2 -2 28 36' width='40' height='60' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3'%3E%3Cpath d='M12 30 L24 16 12 2' /%3E%3C/svg%3E");
+  bottom: 0;
+  right: 0;
+}
 
-  .tinybox__thumbs {
-    bottom: 0;
-    height: 15%;
-    left: 0;
-    line-height: 0;
-    padding: 0 10px;
-    position: absolute;
-    right: 0;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-  }
+.tinybox__content__control--close {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-5 -5 46 46' width='40' height='40' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='4'%3E%3Cpath d='M2 30 L30 2 M30 30 L2 2' /%3E%3C/svg%3E");
+  height: 2.6em;
+  right: 0;
+}
 
-  .tinybox__thumbs__item {
-    cursor: pointer;
-    display: inline-block;
-    height: 10vh;
-    margin: 2.5vh 5px;
-    object-fit: cover;
-    overflow: hidden;
-    width: 10vh;
-  }
+.tinybox__thumbs {
+  bottom: 0;
+  height: 15%;
+  left: 0;
+  line-height: 0;
+  padding: 0 10px;
+  position: absolute;
+  right: 0;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+}
 
-  .tinybox__thumbs__item--active {
-    opacity: .3;
-  }
+.tinybox__thumbs__item {
+  cursor: pointer;
+  display: inline-block;
+  height: 10vh;
+  margin: 2.5vh 5px;
+  object-fit: cover;
+  overflow: hidden;
+  width: 10vh;
+}
 
-  /*******************/
-  /*   TRANSITIONS   */
-  /*******************/
+.tinybox__thumbs__item--active {
+  opacity: 0.3;
+}
 
-  .fade-enter,
-  .next-enter,
-  .prev-enter,
-  .fade-leave-active,
-  .prev-leave-active,
-  .next-leave-active {
-    opacity: 0;
-  }
+/*******************/
+/*   TRANSITIONS   */
+/*******************/
 
-  .fade-enter-active,
-  .fade-leave-active,
-  .prev-leave-active,
-  .next-leave-active {
-    transition: opacity 300ms ease;
-  }
+.fade-enter,
+.next-enter,
+.prev-enter,
+.fade-leave-active,
+.prev-leave-active,
+.next-leave-active {
+  opacity: 0;
+}
 
-  .prev-enter {
-    transform: translateX(-40px);
-  }
+.fade-enter-active,
+.fade-leave-active,
+.prev-leave-active,
+.next-leave-active {
+  transition: opacity 300ms ease;
+}
 
-  .next-enter {
-    transform: translateX(40px);
-  }
+.prev-enter {
+  transform: translateX(-40px);
+}
 
-  .next-enter-active,
-  .prev-enter-active {
-    transition: opacity 300ms ease, transform 300ms ease;
-  }
+.next-enter {
+  transform: translateX(40px);
+}
+
+.next-enter-active,
+.prev-enter-active {
+  transition: opacity 300ms ease, transform 300ms ease;
+}
 </style>

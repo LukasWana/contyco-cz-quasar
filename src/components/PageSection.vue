@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template lang="pug">
-  div.page-section(:class="{'page-fixed-width': fullWidth === false}")
-    slot
+div.page-section(:class="{'page-fixed-width': fullWidth === false}")
+  slot
 
 </template>

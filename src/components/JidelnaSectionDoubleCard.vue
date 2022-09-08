@@ -11,20 +11,20 @@ export default {
 
 <template lang="pug">
 
-  q-card(bordered).page-section-card
-    q-card-section
-      .page-section-card-icon
-        q-avatar(size="135px")
-          slot(name="icon")
+q-card(bordered).page-section-card
+  q-card-section
+    .page-section-card-icon
+      q-avatar(size="135px")
+        slot(name="icon")
 
-      .page-section-card-title
-        slot(name="title")
+    .page-section-card-title
+      slot(name="title")
 
-      .page-section-card-content
-        q-tab-panels(:value="selectedTab" animated).no-alt-scroll
-          q-tab-panel(name="detail")
-            div
-              slot
+    .page-section-card-content
+      q-tab-panels(:value="selectedTab" animated).no-alt-scroll
+        q-tab-panel(name="detail")
+          div
+            slot
 
 </template>
 

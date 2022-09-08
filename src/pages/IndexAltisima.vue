@@ -34,7 +34,7 @@ export default {
   name: 'PageIndex',
 
   meta: {
-    title: 'Altisima.cz'
+    title: 'Contyco.cz'
   },
 
   components: {
@@ -147,25 +147,25 @@ q-page
       arrows navigation infinite height="500px"
       transition-next="jump-left" transition-prev="jump-right").no-alt-scroll
 
-      q-carousel-slide(name="1" img-src="~assets/carusel-altisima-001b.jpg")
+      q-carousel-slide(name="1" img-src="~assets/carusel-contyco-001.jpg")
         carousel-content
           template(#semi-title) Chytrý
           template(#title) Svoz odpadu
           template(#description) Optimalizuje svoz tříděného odpadu
 
-      q-carousel-slide(name="2" img-src="~assets/carusel-altisima-002.jpg")
+      q-carousel-slide(name="2" img-src="~assets/carusel-contyco-002.jpg")
         carousel-content
           template(#semi-title) Vyhledá
           template(#title) Nejbližší kontejner
           template(#description) Aplikace pomůže vyhledat nejbližší nádobu na tříděný odpad
 
-      q-carousel-slide(name="3" img-src="~assets/carusel-altisima-003.jpg")
+      q-carousel-slide(name="3" img-src="~assets/carusel-contyco-003.jpg")
         carousel-content
           template(#semi-title) Přehledy
           template(#title) Zaplněnosti nádob
           template(#description) Vždy máte po ruce přehled plnosti kontejnerů
 
-      q-carousel-slide(name="4" img-src="~assets/carusel-altisima-004.jpg")
+      q-carousel-slide(name="4" img-src="~assets/carusel-contyco-004.jpg")
         carousel-content
           template(#semi-title) Intuitivní
           template(#title) Prostředí aplikace
@@ -238,42 +238,42 @@ q-page
     .flex.q-gutter-sm(:class="{'justify-center': $q.screen.gt.xs}")
       page-section-card
         template(#icon)
-          img(src="~assets/a-altisima-odrazka2.svg" alt="Icona" height="36px")
+          img(src="~assets/contyco-odrazka.svg" alt="Icona" height="36px")
         template(#title) Nároky na hardware
         template
           | Pro provoz aplikace využijete standardní počítače nebo mobilní zařízení. Provoz databáze a celkovou infrastrukturu zajistíme v ceně služby.
 
       page-section-card
         template(#icon)
-          img(src="~assets/a-altisima-odrazka2.svg" alt="Icona" height="36px")
+          img(src="~assets/contyco-odrazka.svg" alt="Icona" height="36px")
         template(#title) Uživatelské rozhraní
         template
           | Responzivní rozhraní webové aplikace pro správu obce zajistí pohodlnou práci a aplikací na všech typech zařízení.
 
       page-section-card
         template(#icon)
-          img(src="~assets/a-altisima-odrazka2.svg" alt="Icona" height="36px")
+          img(src="~assets/contyco-odrazka.svg" alt="Icona" height="36px")
         template(#title) Dostupnost služeb
         template
           | Naše výkonné servery zajistí provoz aplikace v jakoukoli dobu. Mobilní verze je připravená pro všechny operační systémy.
 
       page-section-card
         template(#icon)
-          img(src="~assets/a-altisima-odrazka2.svg" alt="Icona" height="36px")
+          img(src="~assets/contyco-odrazka.svg" alt="Icona" height="36px")
         template(#title) Vzájemná konektivita
         template
           | Po aktivaci služby vytvoříme vaší obci uživatelský profil, kam se přihlašují pracovníci správy obce i mobilní aplikace.
 
       page-section-card
         template(#icon)
-          img(src="~assets/a-altisima-odrazka2.svg" alt="Icona" height="36px")
+          img(src="~assets/contyco-odrazka.svg" alt="Icona" height="36px")
         template(#title) Přenos dat
         template
           | Data mezi centrální správou obecního profilu a mobilními aplikacemi jsou přenášena okamžitě s vysokým zabezpečením.
 
       page-section-card
         template(#icon)
-          img(src="~assets/a-altisima-odrazka2.svg" alt="Icona" height="36px")
+          img(src="~assets/contyco-odrazka.svg" alt="Icona" height="36px")
         template(#title) Podpora systému
         template
           | Naše řešení obsahuje nejen aktivaci, ale i neomezenou podporu pro správu obce i pro uživatele mobilních aplikací.
@@ -285,8 +285,8 @@ q-page
       .q-gutter-y-md()
         q-card
           q-tabs(v-model='tab' no-caps class='md-md text-primary' active-color='accent' indicator-color='accent')
-            q-tab(name='admin' label='administrace odběrných míst')
-            q-tab(name='app' label='mobilní aplikace')
+            q-tab(name='admin' label='Administrace odběrných míst')
+            q-tab(name='app' label='Mobilní aplikace')
 
           q-separator
           q-tab-panels(v-model='tab' animated='')

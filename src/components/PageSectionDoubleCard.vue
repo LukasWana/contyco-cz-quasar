@@ -11,29 +11,29 @@ export default {
 
 <template lang="pug">
 
-  q-card(bordered).page-section-card
-    q-card-section
-      .page-section-card-icon
-        div
-          q-avatar.avatar
-            div
-              slot(name="icon")
+q-card(bordered).page-section-card
+  q-card-section
+    .page-section-card-icon
+      div
+        q-avatar.avatar
+          div
+            slot(name="icon")
 
-      .page-section-card-title
-        slot(name="title")
+    .page-section-card-title
+      slot(name="title")
 
-      .page-section-card-content
-        q-tab-panels(:value="selectedTab" animated).no-alt-scroll
-          q-tab-panel(name="detail")
-            div
-              slot
-          q-tab-panel(name="kalkulace")
-            div
-              slot(name="second")
-      .page-section-tabs
-        q-tabs(v-model="selectedTab" align="justify" dense no-caps indicator-color="primary" )
-          q-tab(label="Popis" name="detail" style="width: 50%")
-          q-tab(label="Kalkulace" name="kalkulace" style="width: 50%")
+    .page-section-card-content
+      q-tab-panels(:value="selectedTab" animated).no-alt-scroll
+        q-tab-panel(name="detail")
+          div
+            slot
+        q-tab-panel(name="kalkulace")
+          div
+            slot(name="second")
+    .page-section-tabs
+      q-tabs(v-model="selectedTab" align="justify" dense no-caps indicator-color="primary" )
+        q-tab(label="Popis" name="detail" style="width: 50%")
+        q-tab(label="Kalkulace" name="kalkulace" style="width: 50%")
 
 </template>
 

@@ -6,16 +6,16 @@ export default {
 
 <template lang="pug">
 
-  q-card(flat).page-section-card
-    q-card-section.page-section-card-title
-      .flex.no-wrap
-        div.icon
-          slot(name="icon")
-        div
-          div.title
-            slot(name="title")
-          div.content
-            slot
+q-card(flat).page-section-card
+  q-card-section.page-section-card-title
+    .flex.no-wrap
+      div.icon
+        slot(name="icon")
+      div
+        div.title
+          slot(name="title")
+        div.content
+          slot
 
 </template>
 
@@ -50,6 +50,7 @@ $contentHeight = $cardHeight - $titleHeight
   text-align left
   font-size 20px
   font-weight bold
+  color: $secondary
   .gt-sm &
     height $titleHeight
 
