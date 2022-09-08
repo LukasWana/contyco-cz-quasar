@@ -183,18 +183,18 @@ q-page
     .flex.justify-center(:class="{'q-gutter-lg': !$q.screen.lt.sm}")
 
       jidelna-section-double-card
-        a.invisible-link(href="jidelnasql.cz" target="_blank")
-        template(#icon)
-          img(src="~assets/reseni-03.jpg" alt="Chip")
-        template(#title) Odběrná místa
-        template(#default)
-          div.text-left.ulli
-            | Hlavní obrazovka webové aplikace zobrazuje přehledně stav v reálném čase a obsahuje hlavní rozcestník pro jednotlivé funkce aplikace. Všechny panely jsou aktivní a umožňují rychlý přechod k detailu dané funkce nebo přehledu.
+          template(#title) Odběrná místa
+          template(#icon)
+            q-icon(name="location_on" color="accent" size="120px")
+          template(#default)
+            div.text-left.ulli
+              | Hlavní obrazovka webové aplikace zobrazuje přehledně stav v reálném čase a obsahuje hlavní rozcestník pro jednotlivé funkce aplikace. Všechny panely jsou aktivní a umožňují rychlý přechod k detailu dané funkce nebo přehledu.
+
 
       jidelna-section-double-card
         template(#title) Detail odběrného místa
         template(#icon)
-          img(src="~assets/reseni-02.jpg" alt="Chip")
+          q-icon(name="map" color="accent" size="120px")
         template(#default)
           div.text-left.ulli
             | V detailním přehledu odběrného místa je možné zobrazit jednotlivé kontejnery, spravovat je a zobrazovat průměrnou zaplněnost v době svozu odpadu. Jednou ze zajímavých funkcí je informace o typu kontejneru, kde je uvedený výrobce a vlastník. Díky tomu je možné snadno zařídit opravu nebo výměnu kontejneru v případě jeho poškození.
@@ -202,7 +202,7 @@ q-page
       jidelna-section-double-card
         template(#title) Kalendář svozů
         template(#icon)
-          img(src="~assets/reseni-01.jpg" alt="Chip")
+          q-icon(name="date_range" color="accent" size="120px")
         template(#default)
           div.text-left.ulli
             | Další důležitou funkcí je možnost zadání kalendáře svozů. Je možné sledovat a optimalizovat termíny svozů. Všechna data mají k dispozici občané obce. Kombinace informací o zaplněnosti nádob a termínu svozů jim poskytují dostatek informací o nádobách na tříděný odpad v jejich okolí.
@@ -210,7 +210,7 @@ q-page
       jidelna-section-double-card
         template(#title) Mobilní aplikace
         template(#icon)
-          img(src="~assets/reseni-01.jpg" alt="Chip")
+          q-icon(name="smartphone" color="accent" size="120px")
         template(#default)
           div.text-left.ulli
             | Pro občany obce jsme připravili mobilní aplikaci. Data získaná od uživatelů aplikace pomáhají optimalizovat správu nádob na tříděný odpad. Pořizovat je mohou občané obce nebo pověření zaměstnanci Obecního úřadu. Uživatelské rozhraní aplikace je intuitivní a práci s ní zvládne jakýkoli uživatel chytrého mobilního telefonu.
@@ -218,7 +218,7 @@ q-page
       jidelna-section-double-card
         template(#title) Uživatelé aplikace
         template(#icon)
-          img(src="~assets/reseni-01.jpg" alt="Chip")
+          q-icon(name="account_circle" color="accent" size="120px")
         template(#default)
           div.text-left.ulli
             | Aplikace může fungovat v režimu host nebo pro přihlášené uživatele. Obsahuje veškeré informace potřebné k vyhledání místa odběru tříděného odpadu, jeho zaplněnosti a termín svozu odpadu. Přihlášený uživatel má navíc možnost volby nejčastěji používaného odběrného místa s notifikací o zaplněnosti nebo o provedeném svozu odpadu.
@@ -226,7 +226,7 @@ q-page
       jidelna-section-double-card
         template(#title) Správa odběrného místa
         template(#icon)
-          img(src="~assets/reseni-01.jpg" alt="Chip")
+          q-icon(name="edit_location" color="accent" size="120px")
         template(#default)
           div.text-left.ulli
             | Po stažení aplikace jsou pro všechny uživatele okamžitě k dispozici informace o umístění nádob s tříděným odpadem s možností vyhledávání podle lokality nebo typu nádoby na tříděný odpad. V případě zaplněnosti jednotlivých nádob je možné tuto nádobu označit jako plnou a vyhledat nejbližší nezaplněnou nádobu.
