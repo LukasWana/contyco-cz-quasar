@@ -11,7 +11,7 @@ export default {
 
 <template lang="pug">
 
-q-card(bordered).page-section-card
+q-card(flat square bordered).page-section-card
   q-card-section
     .page-section-card-icon
       q-avatar(size="135px")

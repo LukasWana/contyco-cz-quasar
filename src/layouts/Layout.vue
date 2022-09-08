@@ -6,7 +6,7 @@ q-layout(view="lHh Lpr lFf" class="is-gekon")
       q-toolbar-title
       | CONTYCO.CZ
       // lang-switcher-flags
-  q-page-container.gekon-bg-img.transition(name='slide-fade' appear)
+  q-page-container.altisima-bg-img.transition(name='slide-fade' appear)
     div
       router-view
       layout-footer.q-mt-lg

@@ -11,12 +11,12 @@ export default {
 
 <template lang="pug">
 
-  q-card(bordered).page-section-card
-    q-card-section
-      .page-section-card-content
-          q-tab-panel(name="detail")
-            div
-              slot
+q-card(bordered).page-section-card
+  q-card-section
+    .page-section-card-content
+        q-tab-panel(name="detail")
+          div
+            slot
 
 </template>
 
